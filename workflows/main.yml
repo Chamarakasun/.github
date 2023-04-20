@@ -1,0 +1,26 @@
+name: Update Profile
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    name: Update README
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Update profile
+        uses: lowlighter/metrics@latest
+        with:
+          # ... other options
+          # See more examples in the documentation: https://github.com/lowlighter/metrics/blob/master/EXAMPLES.md
+          plugin_snake: yes
+          plugin_snake_color: "black"
+          plugin_snake_anim: "wave"
+          plugin_snake_bg_color: "0d1117"
+          # ... other options
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
